@@ -34,4 +34,5 @@ public interface XxlJobAdminClinet {
 
     @GetMapping(PATH + "/jobinfo/stop")
     HashMap stop(@SpringQueryMap Map param);
+
 }

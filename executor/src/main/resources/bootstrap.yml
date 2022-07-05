@@ -1,40 +1,30 @@
 server:
-  port: 7001
-
+  port: 9700
 spring:
   application:
-    name: executor
-  jackson:
-    timeZone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss:SSS
-    default-property-inclusion: non_null
-    parser:
-      allow-single-quotes: true
-    serialization:
-      fail-on-empty-beans: false
-    deserialization:
-      fail-on-unknown-properties: false
+    name: job-executor
+  main:
+    allow-bean-definition-overriding: true
   cloud:
     nacos:
+      username: nacos
+      password: neoderm2020
       discovery:
-        server-addr: 10.2.3.201:18117
-        username: nacos
-        password:
+        server-addr: ${nacos.server}
         enabled: true
-        register-enabled: true
-        namespace: xxl-job-demo
-        group: xxl-job
       config:
-        server-addr: 10.2.3.201:18117
-        username: nacos
-        password:
-        namespace: xxl-job-demo
-        extension-configs:
-          - dataId: executor.yml
-            group: executor
-            refresh: true
+        server-addr: ${nacos.server}
+        file-extension: yaml
+        refreshable-dataids: common.yml
+        shared-dataids: common.yml
+        group: DEFAULT_GROUP
+        shared-configs: application.yaml,application-${spring.profiles.active}.yaml
 
-#xxl:
-#  job:
-#    executor:
-#      #address: http://192.168.0.112:7001
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'

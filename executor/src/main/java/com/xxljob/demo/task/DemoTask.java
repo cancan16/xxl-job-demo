@@ -1,10 +1,8 @@
 package com.xxljob.demo.task;
 
-
 import cn.hutool.core.util.RuntimeUtil;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +19,6 @@ import java.io.InputStreamReader;
 @RefreshScope
 public class DemoTask {
 
-    @Value("${executor.desc}")
     private String desc;
 
     @XxlJob(value = "demoTask")

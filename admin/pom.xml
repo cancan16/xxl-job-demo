@@ -2,12 +2,12 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.cloudwise</groupId>
-		<artifactId>xxl-job-demo</artifactId>
+		<groupId>com.neoderm.framework</groupId>
+		<artifactId>job-center</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>xxl-job-admin</artifactId>
+	<artifactId>job-admin</artifactId>
 	<description>xxl job admin 控制台内置方便开发</description>
 	<packaging>jar</packaging>
 
